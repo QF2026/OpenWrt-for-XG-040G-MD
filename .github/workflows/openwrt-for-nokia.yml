@@ -85,7 +85,7 @@ jobs:
       - name: Clone OpenWrt source code (openwrt-25.12)
         run: |
           git clone --depth 1 --branch "$REPO_BRANCH" "$REPO_URL" openwrt
-          makedir -p package/luci-app-easytier
+          mkdir -p package/luci-app-easytier
           git clone --depth 1 https://github.com/EasyTier/luci-app-easytier.git package/luci-app-easytier
           sed -i 's/192.168.1.1/192.168.1.200/g' package/base-files/files/bin/config_generate
       
