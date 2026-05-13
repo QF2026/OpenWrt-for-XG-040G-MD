@@ -122,7 +122,15 @@ jobs:
           ccache -M "$CCACHE_MAXSIZE"
           echo "ccache dir: $CCACHE_DIR"
           ccache -s
+     
+      - name: Add rtp2httpd feed
+        working-directory: ./openwrt
+        run: |
+          echo "src-git rtp2httpd https://github.com/stackia/rtp2httpd.git" >> feeds.conf.default
+          ./scripts/feeds update rtp2httpd
+          ./scripts/feeds install -a -p rtp2httpd
 
+      
       - name: Update & Install feeds
         working-directory: ./openwrt
         run: |
