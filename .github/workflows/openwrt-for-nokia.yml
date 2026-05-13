@@ -26,7 +26,7 @@ env:
   REPO_URL: https://github.com/xiangtailiang/openwrt.git
   REPO_BRANCH: openwrt-25.12
   FEEDS_CONF: feeds.conf.default
-  UPLOAD_FIRMWARE: false
+  UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   KEEP_RELEASES: 20
   KEEP_RELEASE_MARKER: "[keep-release]"
