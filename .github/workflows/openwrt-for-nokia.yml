@@ -128,17 +128,17 @@ jobs:
       - name: add leasytier&rtp2http，update&install feeds
         working-directory: ./openwrt
         run: |
-        sed -i 's/192.168.1.1/192.168.1.200/g' package/base-files/files/bin/config_generate
-        echo "src-git rtp2httpd https://github.com/stackia/rtp2httpd.git" >> feeds.conf.default
-       # 1. 删除官方 feeds 中可能存在的旧版本
-        rm -rf feeds/luci/applications/luci-app-easytier
-        rm -rf feeds/packages/net/easytier
-       # 2. 手动克隆到 package 目录
-       mkdir -p package/luci-app-easytier
-       git clone --depth=1 https://github.com/EasyTier/luci-app-easytier.git package/luci-app-easytier
-       # 3. 刷新全局索引
-       ./scripts/feeds update -a
-       ./scripts/feeds install -a -f
+          sed -i 's/192.168.1.1/192.168.1.200/g' package/base-files/files/bin/config_generate
+          echo "src-git rtp2httpd https://github.com/stackia/rtp2httpd.git" >> feeds.conf.default
+          # 1. 删除官方 feeds 中可能存在的旧版本
+          rm -rf feeds/luci/applications/luci-app-easytier
+          rm -rf feeds/packages/net/easytier
+          # 2. 手动克隆到 package 目录
+          mkdir -p package/luci-app-easytier
+          git clone --depth=1 https://github.com/EasyTier/luci-app-easytier.git package/luci-app-easytier
+          # 3. 刷新全局索引
+          ./scripts/feeds update -a
+          ./scripts/feeds install -a -f
 
       - name: Install third-party packages (homeproxy, passwall)
         working-directory: ./openwrt/package
